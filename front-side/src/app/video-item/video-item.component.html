@@ -1,0 +1,174 @@
+<div class="share_window" (click)="closeShareWindow($event)">
+  <div class="to_share">
+    <div class="share_top">
+      <p>Share</p>
+      <img src="/assets/svg/close.svg" class="close_share" alt="close-share-window">
+    </div>
+    <div class="available_links">
+      <a href="" >
+        <div class="png_img">
+          <img src="/assets/share/to-instagram.svg" alt="to-instagram">
+        </div>
+        <p>Instagram</p>
+      </a>
+      <a href="">
+        <div>
+          <img src="/assets/share/to-whatsapp.png" alt="to-whatsapp">
+        </div>
+        <p>WhatsApp</p>
+      </a>
+      <a href="">
+        <div>
+          <img src="/assets/share/to-vk.jpg" alt="to-vk">
+        </div>
+        <p>VK</p>
+      </a>
+      <a href="">
+        <div class="png_img">
+          <img src="/assets/share/to-telegram.png" alt="to-telegram">
+        </div>
+        <p>Telegram</p>
+      </a>
+      <a href="">
+        <div>
+          <img src="/assets/share/to-mail.png" alt="to-mail">
+        </div>
+        <p>Email</p>
+      </a>
+    </div>
+    <div class="separator"></div>
+    <div class="share_link">
+      <input type="text" disabled>
+      <button (click)="copyToClipboard($event)">Copy</button>
+    </div>
+  </div>
+</div>
+
+<p class="successfully_copied">
+  The link is copied to the clipboard
+</p>
+
+<div *ngIf="videoType == 1" class="video-item" [ngClass]="(getMenuCondition() == 'left close') ? 'video-item' : 'video-item close'">
+  <a href="/watch/{{video.id}}">
+    <img src="{{video.image_url}}g" class="preview" alt="">
+    <p class="duration">{{video.total_duration}}</p>
+  </a>
+  <div class="item_nav">
+    <div class="nav_left">
+      <a *ngIf="!isChanel" routerLink="/chanel/{{video.owner.username}}">
+        <div class="avatar" [ngClass]="video.owner.avatar == '/assets/avatar.png' ? 'avatar default' : 'avatar'">
+          <img src="{{video.owner.avatar}}" alt="">
+        </div>
+      </a>
+      <div class="chanel_info">
+        <a *ngIf="getMenuCondition() == 'left close'" routerLink="">{{video.title.substring(0, 29)}} ...</a>
+        <a *ngIf="getMenuCondition() == 'left'" routerLink="">{{video.title.substring(0, 28)}}...</a>
+        <a routerLink="/chanel" class="chanel_link">
+          <p *ngIf="getMenuCondition() == 'left close'">{{video.owner.username.substring(0, 8)}}</p>
+          <p *ngIf="getMenuCondition() == 'left'">{{video.owner.username.substring(0, 5)}}</p>
+          <div class="video_data">
+            {{video.total_views}} views <p>|</p> 2 years ago
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="nav_right">
+      <img src="/assets/svg/more.svg" alt="more" class="more_open_btn" (click)="openMoreWindow($event)">
+      <ul class="more_open">
+        <li>
+          <img src="/assets/svg/playlist-add.svg" alt="">
+          <p style="margin-top: -1px">Add to playlist</p>
+        </li>
+        <li>
+          <img src="/assets/svg/watch-later.svg" alt="">
+          <p style="margin-top: 1px">Watch later</p>
+        </li>
+        <li (click)="openShareWindow($event)">
+          <img src="/assets/svg/share.svg" class="share" alt="">
+          <p style="margin-top: 1px">Share</p>
+        </li>
+        <li *ngIf="historyItem" class="history_item" (click)="deleteFromHistory(video.id)">
+          <img src="/assets/svg/trash.svg" alt="">
+          <p style="margin-top: 3px">Delete from history</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="videoType == 2" class="recommended_item" [ngClass]="(getMenuCondition() == 'left close') ? 'recommended_item' : 'recommended_item close'">
+  <a href="/watch/{{video.id}}" class="req_cover">
+    <img src="{{video.image_url}}" alt="">
+    <p class="duration">{{video.total_duration}}</p>
+  </a>
+  <div class="rec_right">
+    <div class="req_info">
+      <a routerLink="">
+        <p *ngIf="getMenuCondition() == 'left close'" class="req_title">{{video.title.substring(0, 42)}} ...</p>
+        <p *ngIf="getMenuCondition() == 'left'" class="req_title">{{video.title.substring(0, 38)}} ...</p>
+      </a>
+      <a routerLink="">
+        <p class="req_chanel">{{video.owner.username}}</p>
+        <div class="req_data">
+          {{video.total_views}} views <p>|</p> 2 years ago
+        </div>
+      </a>
+    </div>
+    <div class="nav_right">
+      <img src="/assets/svg/more.svg" alt="more" class="more_open_btn" (click)="openMoreWindow($event)">
+      <ul class="more_open">
+        <li>
+          <img src="/assets/svg/playlist-add.svg" alt="">
+          <p style="margin-top: -1px">Add to playlist</p>
+        </li>
+        <li>
+          <img src="/assets/svg/watch-later.svg" alt="">
+          <p style="margin-top: 1px">Watch later</p>
+        </li>
+        <li (click)="openShareWindow($event)">
+          <img src="/assets/svg/share.svg" class="share" alt="">
+          <p style="margin-top: 1px">Share</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="videoType == 3" class="liked_item">
+  <a routerLink="/watch/{{video.id}}" class="req_cover">
+    <img src="{{video.image_url}}" alt="">
+    <p class="duration">{{video.total_duration}}</p>
+  </a>
+  <div class="req_info">
+    <a routerLink="">
+      <p class="req_title">{{video.title}}</p>
+    </a>
+    <a routerLink="">
+      <p class="req_chanel">{{video.owner.username}}</p>
+      <div class="req_data">
+        {{video.total_views}} views <p>|</p> 2 years ago
+      </div>
+    </a>
+  </div>
+  <div class="nav_right">
+    <img src="/assets/svg/more.svg" alt="more" class="more_open_btn" (click)="openMoreWindow($event)">
+    <ul class="more_open">
+      <li>
+        <img src="/assets/svg/playlist-add.svg" alt="">
+        <p style="margin-top: -1px">Add to playlist</p>
+      </li>
+      <li>
+        <img src="/assets/svg/watch-later.svg" alt="">
+        <p style="margin-top: 1px">Watch later</p>
+      </li>
+      <li (click)="openShareWindow($event)">
+        <img src="/assets/svg/share.svg" class="share" alt="">
+        <p style="margin-top: 3px">Share</p>
+      </li>
+      <li class="history_item" (click)="deleteFromLiked(video.id)">
+        <img src="/assets/svg/trash.svg" alt="">
+        <p style="margin-top: 3px">Delete from liked</p>
+      </li>
+    </ul>
+  </div>
+</div>

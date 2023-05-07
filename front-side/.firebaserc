@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "soltube": {
+      "hosting": {
+        "sol-tube": [
+          "soltube"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "soltube"
+  }
+}

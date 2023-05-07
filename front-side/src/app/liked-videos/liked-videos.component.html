@@ -1,0 +1,24 @@
+<div *ngIf="isAuthorized == null" class="container_unauthorized">
+  <p class="title">Enjoy Your Favorite Videos</p>
+  <p class="subtitle">Sign in to access videos that you've liked</p>
+  <a href="/sign-in">Sign in</a>
+</div>
+<div *ngIf="isAuthorized != null" class="container">
+  <p class="title">Liked Videos</p>
+  <div class="liked_top">
+    <div class="liked_info">
+      <p>• {{likedVideos.length}} videos</p>
+    </div>
+    <button class="clear_liked_btn" (click)="clearAllLiked()">
+      <img src="/assets/svg/trash.svg" alt="clear-liked">
+      Clear All Liked Videos
+    </button>
+  </div>
+  <div class="separator"></div>
+  <div class="liked_container">
+    <div *ngFor="let video of likedVideos; let i = index" class="liked_item_container">
+      <p class="index">{{i + 1}}</p>
+      <app-video-item [videoType]="3" [video]="video"></app-video-item>
+    </div>
+  </div>
+</div>

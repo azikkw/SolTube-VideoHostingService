@@ -1,0 +1,28 @@
+<div class="container">
+  <p class="error"></p>
+  <form #signInForm="ngForm" (ngSubmit)="signIn(signInForm.value, $event)">
+    <div class="return_back" (click)="returnBack()">
+      <img src="/assets/svg/arrow.svg" alt="arrow">
+      Return back
+    </div>
+    <div class="title">
+      <p>Sign In</p>
+      <p>to continue to SolTube</p>
+    </div>
+    <div class="input_block">
+      <label>Username</label>
+      <input name="username" type="text" ngModel placeholder="Enter username">
+    </div>
+    <div class="input_block">
+      <label>Password</label>
+      <input name="password" type="password" ngModel placeholder="Enter password" class="password_input">
+      <div class="show_hide_btn hide">
+        <img src="/assets/svg/show-password.svg" (click)="showHidePassword(false, $event)" class="show_btn" alt="show-password">
+        <img src="/assets/svg/hide-password.svg" (click)="showHidePassword(true, $event)" class="hide_btn" alt="hide-password">
+      </div>
+    </div>
+    <div class="separator"></div>
+    <button type="submit">Sign in</button>
+    <a routerLink="/sign-up" class="link">Not registered yet? <p>Create an account</p></a>
+  </form>
+</div>

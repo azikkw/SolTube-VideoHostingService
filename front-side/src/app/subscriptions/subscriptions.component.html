@@ -1,0 +1,11 @@
+<div *ngIf="isAuthorized == null" class="container_unauthorized">
+  <p class="title">Don't Miss New Videos</p>
+  <p class="subtitle">Sign in to see updates from your favorite SolTube channels</p>
+  <a href="/sign-in">Sign in</a>
+</div>
+<div *ngIf="isAuthorized != null" class="container">
+  <p class="title">Subscriptions</p>
+  <div class="subscriptions_container">
+    <app-video-item *ngFor="let video of videos" [videoType]="1" [video]="video"></app-video-item>
+  </div>
+</div>

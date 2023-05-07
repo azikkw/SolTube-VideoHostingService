@@ -1,0 +1,15 @@
+<div *ngIf="isAuthorized == null" class="container_unauthorized">
+  <p class="title">Keep Track Of What You Watch</p>
+  <p class="subtitle">Sign in to track your watch history</p>
+  <a href="/sign-in">Sign in</a>
+</div>
+<div *ngIf="isAuthorized != null" class="container">
+  <p class="title">Watch History</p>
+  <button class="clear_history_btn" (click)="clearAllHistory()">
+    <img src="/assets/svg/trash.svg" alt="clear-history">
+    Clear All Watch History
+  </button>
+  <div class="history_container">
+    <app-video-item *ngFor="let video of videos" [videoType]="1" [video]="video"></app-video-item>
+  </div>
+</div>

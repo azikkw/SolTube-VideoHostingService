@@ -1,0 +1,76 @@
+<div class="container">
+  <p class="notification">Video successfully uploaded to SolTube!</p>
+  <form #videoUploadForm="ngForm" (ngSubmit)="videoUpload(videoUploadForm.value, $event)">
+    <div class="return_back" (click)="returnBack()">
+      <img src="/assets/svg/arrow.svg" alt="arrow">
+      Return back
+    </div>
+    <div class="navigation">
+      <div (click)="chooseNav($event)" data-nav="data_video" class="active">
+        <p>Video</p>
+        <span></span>
+      </div>
+      <div (click)="chooseNav($event)" data-nav="data_information">
+        <p>Information</p>
+        <span></span>
+      </div>
+      <div (click)="chooseNav($event)" data-nav="data_uploading">
+        <p>Uploading</p>
+        <span></span>
+      </div>
+    </div>
+    <div class="pages_container data_video">
+      <div class="page video_page">
+        <input name="videoFile" type="file" id="video_file" (change)="chooseVideo($event)">
+        <label class="video_container" for="video_file">
+          <video *ngIf="previewVideo != ''" src="{{previewVideo}}" class="preview_video" controls></video>
+          <div class="upload">
+            <img src="/assets/svg/upload.svg" alt="">
+          </div>
+          <p>Select your video</p>
+          <div *ngIf="previewVideo != ''" class="also_select">Select new video file</div>
+        </label>
+        <input name="previewFile" type="file" id="preview_file" (change)="choosePreview($event)">
+        <label class="preview_container" for="preview_file">
+          <img *ngIf="previewImg != ''" src="{{previewImg}}" class="preview_image" alt="">
+          <div class="upload">
+            <img src="/assets/svg/upload.svg" alt="">
+          </div>
+          <p>Select a preview image for your video</p>
+          <div *ngIf="previewImg != ''" class="also_select">Select new image file</div>
+        </label>
+      </div>
+      <div class="page information_page">
+        <div class="input_block">
+          <input name="title" type="text" ngModel placeholder="Enter title of video" class="video_title_input">
+          <label>Video title</label>
+        </div>
+        <div class="input_block">
+          <textarea name="description" type="text" ngModel placeholder="Enter description of video" class="video_description_input"></textarea>
+          <label>Video description</label>
+        </div>
+        <div class="input_block choose">
+          <input name="categoryId" type="text" data-id="" ngModel placeholder="Choose category of video" class="video_category_input" disabled>
+          <label>Video category</label>
+          <img src="/assets/svg/choose-arrow.svg" alt="">
+          <ul (click)="selectCategory($event)" class="select_category">
+            <li *ngFor="let category of categories">
+              {{category.name}}
+              <p>{{category.id}}</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="page uploading_page">
+        <div class="percentage_container">
+          <p>Uploading progress:</p>
+          <p class="percent_value">0%</p>
+        </div>
+        <div class="progress_container">
+          <div class="progress_bar"></div>
+        </div>
+        <button type="submit" class="video_uploading_btn">Upload video</button>
+      </div>
+    </div>
+  </form>
+</div>

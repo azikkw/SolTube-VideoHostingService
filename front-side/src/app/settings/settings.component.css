@@ -1,0 +1,318 @@
+/* Title styles */
+.title
+{
+  font-size: 26px;
+  font-weight: 600;
+}
+
+/* Navigation styling */
+.navigation
+{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  margin: 20px auto 10px;
+
+  font-size: 14.5px;
+  font-weight: 500;
+
+  color: #b2b2b2;
+}
+.navigation p
+{
+  position: relative;
+  padding: 0 30px;
+
+  cursor: pointer;
+}
+.navigation p:hover
+{
+  color: #F1F2F3;
+}
+.navigation p.active
+{
+  color: #ffffff;
+  font-weight: 550;
+}
+.navigation p.active::after
+{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+
+  width: 100%;
+  border-bottom: 2px solid #E40915;
+
+  content: "";
+  display: block;
+
+  margin-bottom: -12px;
+}
+.separator
+{
+  border-bottom: 2px solid #2a2d31;
+}
+
+/* Pages container styling */
+.pages_container
+{
+  padding: 50px 50px 30px;
+}
+.page
+{
+  display: none;
+}
+.pages_container.data_account .account
+{
+  display: flex;
+}
+.pages_container.data_confidentiality .confidentiality
+{
+  display: block;
+}
+
+/* Account page styling */
+.account
+{
+  gap: 120px;
+  position: relative;
+}
+
+/* Block styling */
+.block
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: fit-content;
+}
+.avatar
+{
+  width: 240px;
+  height: 240px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+  background: #b4b4b4;
+}
+.avatar img
+{
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+  object-fit: cover;
+}
+.avatar.default img
+{
+  width: 75%;
+  height: 75%;
+
+  border-radius: 0;
+}
+#avatar_update_btn
+{
+  display: none;
+}
+.avatar_update_btn
+{
+  background: #676767;
+  border-radius: 8px;
+
+  padding: 12px 20px;
+  margin-top: 25px;
+
+  font-size: 15px;
+
+  cursor: pointer;
+}
+
+.avatar_update_btn:hover
+{
+  background: #5d5d5d;
+}
+
+/* Form blocks styling */
+.form_container
+{
+  height: calc(100vh - 355px);
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  padding-right: 40px;
+}
+.form_container::-webkit-scrollbar-track
+{
+  background: #1e2023;
+}
+.form_block
+{
+  width: 550px;
+  margin-bottom: 32px;
+}
+.form_block:last-child
+{
+  margin-bottom: 0;
+}
+.form_title
+{
+  font-weight: 600;
+  font-size: 16px;
+}
+.form_desc
+{
+  font-size: 13px;
+  font-weight: 400;
+
+  color: rgba(255, 255, 255, .6);
+  margin: 3px 0 25px;
+}
+.input_block
+{
+  position: relative;
+}
+.input_block:focus-within input,
+.input_block:focus-within textarea
+{
+  border-color: #E40915;
+}
+.input_block:focus-within label
+{
+  color: #E40915;
+}
+.input_block.fill_all input
+{
+  border-color: #E40915;
+}
+.input_block.fill_all label
+{
+  color: #E40915;
+}
+input,
+textarea
+{
+  width: 100%;
+  height: 54px;
+
+  border-radius: 12px;
+  border: 2px solid #F1F2F3;
+  background: transparent;
+  box-sizing: border-box;
+
+  font-size: 13px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+
+  padding: 0 24px;
+  outline: none;
+
+  color: #FFF;
+}
+textarea
+{
+  padding: 24px;
+  height: 220px;
+}
+input::placeholder,
+textarea::placeholder
+{
+  color: rgba(241, 242, 243, 0.75);
+}
+.input_block label
+{
+  background: #1D1F22;
+
+  position: absolute;
+  left: 15px;
+  top: -8px;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  color: rgba(241, 242, 243, 0.95);
+
+  padding: 0 10px;
+}
+.user_update_btn
+{
+  width: 100%;
+  height: 54px;
+
+  background: #676767;
+  border-radius: 12px;
+
+  font-size: 15px;
+  font-weight: 500;
+  color: #F1F2F3;
+
+  margin-top: 40px;
+  transition: .2s;
+}
+.user_update_btn.active
+{
+  background: #E40915;
+}
+.user_update_btn.active:hover
+{
+  background: #ff000e;
+}
+
+/* Notification message styling */
+.notification
+{
+  position: fixed;
+  bottom: -80px;
+  left: 55px;
+  z-index: 12;
+
+  margin: 60px 55px;
+  padding: 17px 20px;
+
+  background: #F1F2F3;
+  border-radius: 9px;
+  color: #000;
+
+  font-size: 14.5px;
+
+  visibility: hidden;
+  opacity: 0;
+
+  transition: .2s;
+  cursor: default;
+}
+.notification.show
+{
+  bottom: -30px;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Delete account button styling */
+.delete_account_btn
+{
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  padding: 8px 15px;
+
+  color: #F1F2F3;
+  font-weight: 500;
+  font-size: 13.5px;
+
+  background: #E40915;
+  border-radius: 7px;
+
+  transition: .15s;
+}
+.delete_account_btn:hover
+{
+  background: #ff000e;
+}

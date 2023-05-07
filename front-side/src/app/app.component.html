@@ -1,0 +1,90 @@
+<div class="left">
+  <div class="menu">
+    <div class="menu_btn" (click)="menuClose($event)">
+      <img src="/assets/svg/menu.svg" class="btn" alt="menu">
+      <img src="/assets/soltube.gif" class="logo" alt="soltube-logo">
+    </div>
+  </div>
+  <nav>
+    <ul>
+      <li>
+        <a href="/home" (click)="selectScreen($event)">
+          <div class="icons">
+            <img src="/assets/svg/home.svg" alt="home">
+            <img src="/assets/svg/home-active.svg" alt="home-active">
+          </div>
+          <p>Home</p>
+        </a>
+      </li>
+      <li>
+        <a href="/subscriptions" (click)="selectScreen($event)">
+          <div class="icons">
+            <img src="/assets/svg/subscriptions.svg" alt="subscriptions">
+            <img src="/assets/svg/subscriptions-active.svg" alt="subscriptions-active">
+          </div>
+          <p>Subscriptions</p>
+        </a>
+      </li>
+    </ul>
+    <div class="separator"></div>
+    <ul>
+      <li>
+        <a href="/history" (click)="selectScreen($event)">
+          <div class="icons">
+            <img src="/assets/svg/history.svg" alt="history">
+            <img src="/assets/svg/history-active.svg" alt="history-active">
+          </div>
+          <p>History</p>
+        </a>
+      </li>
+      <li>
+        <a href="/liked" (click)="selectScreen($event)">
+          <div class="icons">
+            <img src="/assets/svg/liked.svg" alt="liked">
+            <img src="/assets/svg/liked-active.svg" alt="liked-active">
+          </div>
+          <p>Liked videos</p>
+        </a>
+      </li>
+    </ul>
+    <div class="separator"></div>
+    <ul>
+      <li>
+        <a href="/settings" (click)="selectScreen($event)">
+          <div class="icons">
+            <img src="/assets/svg/settings.svg" alt="settings">
+            <img src="/assets/svg/settings-active.svg" alt="settings-active">
+          </div>
+          <p>Settings</p>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<div class="right">
+  <header>
+    <div class="empty"></div>
+    <div class="search">
+      <input type="text" placeholder="Search video by title">
+      <img src="/assets/svg/search.svg" alt="search">
+    </div>
+    <div *ngIf="isAuthorized == null" class="authorization">
+      <a href="/sign-in">Sign in</a>
+      <a href="/sign-up">Sign up</a>
+    </div>
+    <div *ngIf="isAuthorized != null" class="authorized">
+      <a href="/video-upload">
+        <div class="icons">
+          <img src="/assets/svg/video-add.svg" alt="video-add">
+          <img src="/assets/svg/video-add-active.svg" alt="video-add-active">
+        </div>
+      </a>
+      <a href="/profile" class="user_link" [ngClass]="user.avatar == '/assets/avatar.png' ? 'user_link default' : 'user_link'">
+        <img src="{{user.avatar}}" alt="">
+      </a>
+    </div>
+  </header>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

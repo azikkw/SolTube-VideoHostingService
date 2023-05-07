@@ -1,0 +1,61 @@
+<p class="title">Settings</p>
+<div class="navigation">
+  <p class="active" (click)="chooseNav($event)" data-nav="data_account">ACCOUNT</p>
+  <p (click)="chooseNav($event)" data-nav="data_confidentiality">CONFIDENTIALITY</p>
+</div>
+<div class="separator"></div>
+<div class="pages_container data_account">
+  <form #updateUserForm="ngForm" (ngSubmit)="updateUser(updateUserForm.value, $event)" class="page account">
+    <div class="delete_account_btn" (click)="delete()">Delete account</div>
+    <p class="notification">The changes were made successfully</p>
+    <div class="block">
+      <div class="avatar" [ngClass]="user.avatar == '/assets/avatar.png' ? 'avatar default' : 'avatar'">
+        <img src="{{user.avatar}}" alt="">
+      </div>
+      <input type="file" id="avatar_update_btn">
+      <label for="avatar_update_btn" class="avatar_update_btn">
+        Update avatar
+      </label>
+    </div>
+    <div class="block">
+      <div class="form_container" (keyup)="makeButtonActive()">
+        <div class="form_block">
+          <p class="form_title">Username</p>
+          <p class="form_desc">Come up with a unique username that will represent you and your content.</p>
+          <div class="input_block">
+            <label>New username</label>
+            <input name="username" type="text" ngModel placeholder="Enter username" class="update_username">
+          </div>
+        </div>
+        <div class="form_block">
+          <p class="form_title">Chanel description</p>
+          <p class="form_desc">Tell the audience about your channel. The description will be shown in different sections of SolTube.</p>
+          <div class="input_block">
+            <textarea name="description" type="text" ngModel placeholder="Enter description of your chanel" class="update_description"></textarea>
+            <label>New chanel description</label>
+          </div>
+        </div>
+        <div class="form_block">
+          <p class="form_title">First name</p>
+          <p class="form_desc">Change your first name to a new one.</p>
+          <div class="input_block">
+            <label>New first name</label>
+            <input name="firstname" type="text" ngModel placeholder="Enter first name" class="update_fname">
+          </div>
+        </div>
+        <div class="form_block">
+          <p class="form_title">Last name</p>
+          <p class="form_desc">Change your last name to a new one.</p>
+          <div class="input_block">
+            <label>New last name</label>
+            <input name="lastname" type="text" ngModel placeholder="Enter last name" class="update_lname">
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="user_update_btn">Save changes</button>
+    </div>
+  </form>
+  <div class="page confidentiality">
+    confidentiality page works!
+  </div>
+</div>

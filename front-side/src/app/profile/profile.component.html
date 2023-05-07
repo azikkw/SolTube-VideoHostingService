@@ -1,0 +1,50 @@
+<div class="background_image" [ngClass]="getMenuCondition() == 'left' ? 'background_image' : 'background_image close'">
+  <img src="/assets/soltube.gif" alt="background_img">
+</div>
+<div class="profile">
+  <div class="user">
+    <div class="avatar" [ngClass]="user.avatar == '/assets/avatar.png' ? 'avatar default' : 'avatar'">
+      <img src="{{user.avatar}}" alt="avatar">
+    </div>
+    <div class="user_info">
+      <p class="username">{{user.username}}</p>
+      <div class="counts">
+        <p class="followers_count">2K followers</p>
+        <p class="videos_count">28 videos</p>
+      </div>
+      <div class="more_about" (click)="navigateToAbout()">
+        <p>More about chanel</p>
+        <img src="/assets/svg/arrow.svg" alt="arrow">
+      </div>
+    </div>
+  </div>
+  <button (click)="logout()">
+    <img src="/assets/svg/log-out.svg" alt="log-out">
+    Log out
+  </button>
+</div>
+<div class="navigation">
+  <p class="active" (click)="chooseNav($event)" data-nav="data_videos">VIDEOS</p>
+  <p (click)="chooseNav($event)" data-nav="data_channels">CHANNELS</p>
+  <p (click)="chooseNav($event)" data-nav="data_about">ABOUT</p>
+</div>
+<div class="separator"></div>
+<div class="pages_container data_videos">
+  <div class="page videos">
+    <p *ngIf="userVideos.length == 0" style="text-align: center">There is no video on your channel yet</p>
+    <app-video-item *ngFor="let video of userVideos" [videoType]="1" [isChanel]="true" [video]="video"></app-video-item>
+  </div>
+  <div class="page channels">
+    <div class="channel" *ngFor="let subscribe of subscribes">
+      <a href="/chanel/{{subscribe.username}}">
+        <img [src]="subscribe.avatar" alt="">
+        <p class="channel_name">{{subscribe.username}}</p>
+        <p class="channel_subscribers_count">10.3M subscribers</p>
+      </a>
+      <button class="subscribe">Subscribe</button>
+    </div>
+  </div>
+  <div class="page about">
+    about page works!
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="navigator" [ngClass]="(getMenuCondition() == 'left close') ? 'navigator' : 'navigator closed'">
+  <p class="active" (click)="chooseNav($event)">All</p>
+  <p *ngFor="let category of categories" (click)="chooseNav($event)">
+    <span style="display: none">{{category.id}}</span>
+    {{category.name}}
+  </p>
+</div>
+<div class="separator"></div>
+<div class="container">
+  <app-video-item *ngFor="let video of videos" [videoType]="1" [video]="video"></app-video-item>
+</div>

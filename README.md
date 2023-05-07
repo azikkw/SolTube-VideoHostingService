@@ -3,7 +3,7 @@ SolTube - Video Hosting Service
 
 ![SolTube](https://github.com/azikkw/SolTube-VideoHostingService/blob/main/soltube.jpg)
 
-### About SolTube
+### What is SolTube?
 > SolTube is an online video hosting service that allows users to upload and store their videos in a secure and easily accessible platform.
 > 
 > Whether you are a content creator looking to share your videos with the world or an individual who wants to enjoy your favorite channels or musicians, SolTube is the   perfect platform for you. With SolTube, you can quickly and easily upload your videos and share them with your friends and family or even a wider audience.

@@ -13,7 +13,7 @@ SolTube - Video Hosting Service
 > Overall, SolTube is an excellent video hosting service that provides a convenient and reliable platform for users to store, share, and stream their video content. Whether you are a content creator or a video enthusiast, SolTube has everything you need to enjoy and share your videos with the world.
   
 ⠀  
-To create the project, we used:
+To create the project, technologies such as:
 
     Angular - was used in the front side 
     Django - was used for the back side

@@ -45,7 +45,7 @@ Next you will need to enter the following:
 Specify the path to the folder where you unpacked the ZIP archive in the command prompt.
  ㅤ
 #### 3. Installing libraries and modules for the front-side
-Since the front-side of the project goes without the necessary libraries and modules, you will need to install them.
+Since the `front-side` of the project goes without the necessary libraries and modules, you will need to install them.
 
 First you have to enter the front-side folder. After that, you need to enter the following command:
 
@@ -55,3 +55,14 @@ As a result, your front-side directory will be replenished with the following fo
 
       .angular/                
       node_modules/            folder with all necessary libraries
+      
+      
+PROJECT START
+-------------
+To run the `back-side` of the project, you must enter the back-side folder and enter the following command:
+
+      python manage.py runserver
+      
+To run the `front-side` of the project, you must enter the front-side folder and enter the following command:
+
+      ng serve --open

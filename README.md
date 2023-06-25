@@ -44,5 +44,16 @@ Next you will need to enter the following:
 #### 2. The path in the command prompt
 Specify the path to the folder where you unpacked the ZIP archive in the command prompt.
  ㅤ
-#### 3. Installing libraries and modules
-Since the ZIP archive goes without the necessary libraries and modules, you will need to install them.
+#### 3. Installing libraries and modules for the front-side
+Since the front-side of the project goes without the necessary libraries and modules, you will need to install them.
+
+First you have to enter the front-side folder
+
+To do this, you need to enter the following command:
+
+      npm install
+      
+After that, your front-side directory will be replenished with the following folders:
+
+      .angular/                
+      node_modules/            folder with all necessary libraries

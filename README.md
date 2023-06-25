@@ -18,4 +18,4 @@ SolTube - Video Hosting Service
     Django - was used for the back side
     Firebase - was used to store videos and photos
 
-To view the project gallery, you can follow this [link](https://github.com/azikkw/SolTube-VideoHostingService/blob/main/preview/SolTube%201.jpg)
+We also have a project gallery. To view the it, you can follow this [link](https://github.com/azikkw/SolTube-VideoHostingService/blob/main/preview/SolTube%201.jpg). You can also watch it in my instagram account [azikkw_web](https://www.instagram.com/azikkw_web/).

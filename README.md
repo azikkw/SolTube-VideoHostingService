@@ -17,3 +17,5 @@ SolTube - Video Hosting Service
     Angular - was used in the front side 
     Django - was used for the back side
     Firebase - was used to store videos and photos
+
+To view the project gallery, you can follow this [link](https://github.com/azikkw/SolTube-VideoHostingService/blob/main/preview/SolTube%201.jpg)

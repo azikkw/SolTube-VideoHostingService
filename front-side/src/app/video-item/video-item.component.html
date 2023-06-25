@@ -50,7 +50,7 @@
 
 <div *ngIf="videoType == 1" class="video-item" [ngClass]="(getMenuCondition() == 'left close') ? 'video-item' : 'video-item close'">
   <a href="/watch/{{video.id}}">
-    <img src="{{video.image_url}}g" class="preview" alt="">
+    <img src="{{video.image_url}}" class="preview" alt="">
     <p class="duration">{{video.total_duration}}</p>
   </a>
   <div class="item_nav">

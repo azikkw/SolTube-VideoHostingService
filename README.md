@@ -20,6 +20,8 @@ SolTube - Video Hosting Service
 
 We also have a project gallery. To view the project gallery, you can follow this [link](https://github.com/azikkw/SolTube-VideoHostingService/blob/main/preview/SolTube%201.jpg). You can also watch it in my instagram account [azikkw_web](https://www.instagram.com/azikkw_web/).
 
+---
+
 IMPORTING
 ---------
 Step-by-step instructions for importing the `SolTube` project.
